@@ -60,6 +60,7 @@ void StateMachine::ProcessNextLitera(const Litera& lit, vector<char>& outData)
     case Litera::SPACE:
         outData.push_back('\0');
         cout << outData.data() << endl;
+        outData.clear();
         _currentStatus = S0;
         break;
     case Litera::ENDFILE:
