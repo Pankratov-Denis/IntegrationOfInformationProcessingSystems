@@ -15,10 +15,14 @@ void QuickSort( int *a, int n )
     int copy; // Вспомогательная переменная для перестановки
     int x; // Разделяющий элемент
 
+    /*
+    упорядоченность исходного массива достигается не более чем за log2 n
+    разделений. С учетом первого запроса стек запросов должен содержать
+    log2 n 1 элементов.
+    */
     int stackSize = log10( (double) n ) / log10( 2.0 ) + 1;
     QuickSortStack stack( stackSize );
-    // (о размере стека запросов
-    // см. далее в этом разделе)
+ 
     // Инициализация генератора случайных чисел
     srand( (unsigned) time( NULL ) );
     // Первым разделяемым сегментом является массив в целом
@@ -69,17 +73,16 @@ void QuickSort( int *a, int n )
 int main()
 {
     setlocale(LC_ALL, "Russian");
+    srand( (unsigned) time( NULL ) );
     int n; // размер массива
     cout << "Введите размер массива: ";
     cin >> n; // получение от пользователя размера массива
-    srand( (unsigned) time( NULL ) );
-
     int *array = new int[n]; // Выделение памяти для массива
     
     cout << "Полученный массив:"<<endl;
     for (int i = 0; i < n; i++) {
         // Заполнение массива и вывод значений его элементов
-        array[i] = rand() % 11;
+        array[i] = rand() % 20;
         cout << array[i] << "\t";
     }
     cout << endl;
@@ -90,6 +93,7 @@ int main()
         cout << array[i] << "\t";
     }
 
+    cout<<endl;
     delete [] array; // очистка памяти
     return 0;
 }
