@@ -157,7 +157,7 @@ std::vector<int> find_path_Dijkstra(Graph& graph, int start_index, int end_index
         auto [current_weight, current_index] = *(min_weigth_map.begin());
         min_weigth_map.erase(min_weigth_map.begin());
 
-        //если вершина почешена
+        //если вершина посешена
         if (graph.nodes[current_index].visited)
         {
             continue;
@@ -177,7 +177,7 @@ std::vector<int> find_path_Dijkstra(Graph& graph, int start_index, int end_index
                 {
                     graph.nodes[index_to].weight = current_weight + edged_weight;
                     graph.nodes[index_to].prevIndex = current_index;
-                    min_weigth_map.insert({ graph.nodes[index_to].weight, index_to });
+                    min_weigth_map [graph.nodes[index_to].weight] =  index_to;
                 }
             }
         }

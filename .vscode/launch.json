@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/denis/Документы/Labs/Lb2",
-      "program": "/home/denis/Документы/Labs/Lb2/build/Debug/outDebug",
+      "cwd": "/home/denis/Документы/Labs/Lb6",
+      "program": "/home/denis/Документы/Labs/Lb6/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
