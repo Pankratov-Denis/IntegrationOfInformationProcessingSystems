@@ -6,7 +6,7 @@ int main()
 {
     setlocale(LC_ALL, "Russian");
     MyHashTable<std::string,std::string> myMap;
-    std::ifstream in("input.txt"); // окрываем файл для чтения
+    std::ifstream in("input.txt"); 
     std::string n;
     if (in.is_open())
     {
@@ -20,13 +20,11 @@ int main()
                 myMap.Add(s1,s2);
             }
         }
-    }
-    in.close();
+    
+        in.clear();
+        in.seekg(0L, std::ios_base::beg);
 
-    std::ifstream file("input.txt");
-    if (file.is_open())
-    {
-        while (getline(file,n))
+        while (getline(in,n))
         {
             auto pos = n.find(" ");
             if (pos != std::string::npos)
@@ -42,9 +40,9 @@ int main()
                 
             }
         }
+        
+        myMap.printHistogram();
     }
     in.close();
-
-    myMap.printHistogram();
     return 0;
 }
